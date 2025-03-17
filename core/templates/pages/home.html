@@ -2,5 +2,13 @@
 {% block title %}Homepage{% endblock title %}
 {% block content %}
     <h1>Welcome to the Book Store</h1>
-    <p>Here you can find all the books you need.</p>
+    {% if user.is_authenticated %}
+    <p>Hi {{ user.email }}!</p>
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a>
+    <hr>
+    <a href="{% url 'accounts:signup' %}">Sign Up</a>
+    {% endif %}
 {% endblock content %}
