@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     # Third-party Apps
 
 
-    # Custom Apps
-    "accounts.apps.AccountsConfig",
+    # Local Apps
+    'accounts.apps.AccountsConfig',
+    'pages.apps.PagesConfig',
 
 ]
 
