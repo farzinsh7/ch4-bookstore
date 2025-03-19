@@ -7,8 +7,8 @@
     <p><a href="{% url 'logout' %}">Log Out</a></p>
     {% else %}
     <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Log In</a>
+    <a class="btn btn-info" href="{% url 'login' %}">Log In</a>
     <hr>
-    <a href="{% url 'accounts:signup' %}">Sign Up</a>
+    <a class="btn btn-warning" href="{% url 'accounts:signup' %}">Sign Up</a>
     {% endif %}
 {% endblock content %}
