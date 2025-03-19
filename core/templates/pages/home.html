@@ -2,6 +2,7 @@
 {% block title %}Homepage{% endblock title %}
 {% block content %}
     <h1>Welcome to the Book Store</h1>
+    <p>This is the homepage of the Book Store</p>
     {% if user.is_authenticated %}
     <p>Hi {{ user.email }}!</p>
     <p><a href="{% url 'logout' %}">Log Out</a></p>
