@@ -9,7 +9,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     """
     Custom User Model by AbstractBaseUser
     """
-
+    username = models.CharField(_("username"), max_length=150, blank=True)
     email = models.EmailField(_("email address"), unique=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

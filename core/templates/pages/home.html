@@ -5,11 +5,11 @@
     <p>This is the homepage of the Book Store</p>
     {% if user.is_authenticated %}
     <p>Hi {{ user.email }}!</p>
-    <p><a href="{% url 'logout' %}">Log Out</a></p>
+    <p><a class="btn btn-danger" href="{% url 'account_logout' %}">Log Out</a></p>
     {% else %}
     <p>You are not logged in</p>
-    <a class="btn btn-info" href="{% url 'login' %}">Log In</a>
+    <a class="btn btn-info" href="{% url 'account_login' %}">Log In</a>
     <hr>
-    <a class="btn btn-warning" href="{% url 'accounts:signup' %}">Sign Up</a>
+    <a class="btn btn-warning" href="{% url 'account_signup' %}">Sign Up</a>
     {% endif %}
 {% endblock content %}
