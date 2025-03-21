@@ -68,6 +68,8 @@ ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 
+DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"
+
 # ACCOUNT_FORMS = {
 #     'signup': 'accounts.forms.CustomSignupForm',
 # }
