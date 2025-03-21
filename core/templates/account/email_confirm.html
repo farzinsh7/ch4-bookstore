@@ -1,0 +1,12 @@
+{% extends "base/_base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Confirm Email Address{% endblock title %}
+{% block content %}
+<h2>Confirm Email Address</h2>
+Please confirm that <a href="mailto:{{ confirmation.email_address.email }}">{{ confirmation.email_address.email }}</a> is an email address for user {{ confirmation.email_address.user }}.
+<form method="post" action=".">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-success" type="submit">Confirm</button>
+</form>
+{% endblock content %}
