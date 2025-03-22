@@ -9,7 +9,7 @@
             <div class="navbar-nav">
                 <a class="nav-link {% if request.resolver_match.url_name == "home" %}active{% endif %}" aria-current="page" href="{% url "pages:home" %}">Home</a>
                 <a class="nav-link {% if request.resolver_match.url_name == "about" %}active{% endif %}" href="{% url "pages:about" %}">About Us</a>
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link {% if request.resolver_match.url_name == "book_list" %}active{% endif %}" href="{% url "books:book_list" %}">Books</a>
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </div>
             </div>
