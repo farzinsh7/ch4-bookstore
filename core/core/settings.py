@@ -52,8 +52,10 @@ INSTALLED_APPS = [
     # Local Apps
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
-    'books.apps.BooksConfig'
+    'books.apps.BooksConfig',
 
+    # CleanUp
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 
@@ -214,4 +216,4 @@ AWS_ACCESS_KEY_ID       = LIARA_ACCESS_KEY
 AWS_SECRET_ACCESS_KEY   = LIARA_SECRET_KEY
 AWS_STORAGE_BUCKET_NAME = LIARA_BUCKET_NAME
 AWS_S3_ENDPOINT_URL     = LIARA_ENDPOINT
-AWS_S3_REGION_NAME      = 'us-east-1' 
+AWS_S3_REGION_NAME      = 'us-east-1'
