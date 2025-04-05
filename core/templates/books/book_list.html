@@ -2,8 +2,19 @@
 {% block title %}Books{% endblock title %}
 {% block content %}
 {% for object in object_list %}
-<div>
-    <h2><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+            {% if object.cover %}
+            <img src="{{ object.cover.url }}" class="card-img-top" alt="test">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ object.title }}</h5>
+              <a href="{{ object.get_absolute_url }}" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        <div>
+    </div>
 </div>
 {% endfor %}
 {% endblock content %}

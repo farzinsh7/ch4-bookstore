@@ -1,7 +1,10 @@
 {% extends "base/_base.html" %}
 {% block title %}Book Detail{% endblock title %}
 {% block content %}
-<div>
+<div class="col-md-4" style="width: 18rem;">
+    {% if object.cover %}
+    <img src="{{ object.cover.url }}" class="card-img-top" alt="test">
+    {% endif %}
     <h2><a href="">{{ object.title }}</a></h2>
     <p>Author: {{object.author}}</p>
     <p>Price: {{object.price}}</p>

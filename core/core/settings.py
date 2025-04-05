@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'allauth',
     'allauth.account',
+    'storages',
 
     # Local Apps
     'accounts.apps.AccountsConfig',
@@ -191,3 +192,26 @@ ACCOUNT_LOGOUT_REDIRECT = "pages:home"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
+STORAGES = {
+  "default": {
+      "BACKEND": "storages.backends.s3.S3Storage",
+  },
+  "staticfiles": {
+      "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+  },
+}
+
+# S3 Settings
+LIARA_ENDPOINT    = config("LIARA_ENDPOINT")
+LIARA_BUCKET_NAME = config("LIARA_BUCKET_NAME")
+LIARA_ACCESS_KEY  = config("LIARA_ACCESS_KEY")
+LIARA_SECRET_KEY  = config("LIARA_SECRET_KEY")
+
+# S3 Settings Based on AWS (optional)
+AWS_ACCESS_KEY_ID       = LIARA_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY   = LIARA_SECRET_KEY
+AWS_STORAGE_BUCKET_NAME = LIARA_BUCKET_NAME
+AWS_S3_ENDPOINT_URL     = LIARA_ENDPOINT
+AWS_S3_REGION_NAME      = 'us-east-1' 
