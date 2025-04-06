@@ -1,17 +1,20 @@
 {% extends "base/_base.html" %}
 {% block title %}Books{% endblock title %}
 {% block content %}
-<div class="card-group my-5">
+<div class="row">
   {% for object in object_list %}
-      <div class="card mx-2" style="width: 18rem;">
-        {% if object.cover %}
-        <img src="{{ object.cover.url }}" class="card-img-top" alt="test">
-        {% endif %}
-        <div class="card-body">
+  <div class="col-md-4 mb-4">
+      <div class="card" style="width: 18rem;">
+      {% if object.cover %}
+      <img src="{{ object.cover.url }}" class="card-img-top" alt="test">
+      {% endif %}
+      <div class="card-body">
           <h5 class="card-title">{{ object.title }}</h5>
+          <p><strong>Price:</strong> ${{object.price}}</p>
           <a href="{{ object.get_absolute_url }}" class="btn btn-primary">Read More</a>
-        </div>
       </div>
+      </div>
+  </div>
   {% endfor %}
-</div>
+  </div>
 {% endblock content %}
