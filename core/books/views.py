@@ -1,6 +1,8 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.views.generic import ListView, DetailView
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from .models import Book
 
 
@@ -12,6 +14,7 @@ class BookListView(LoginRequiredMixin, ListView):
         return Book.objects.all()
 
 
+@method_decorator(cache_page(60 * 15), name='dispatch')
 class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     model = Book
     template_name = "books/book_detail.html"

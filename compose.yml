@@ -31,6 +31,14 @@ services:
     restart: always
     depends_on:
       - db
+      - redis
+
+  redis:
+    container_name: redis-bookstore
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: always
 
   smtp4dev:
     image: rnwood/smtp4dev:v3
