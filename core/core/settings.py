@@ -218,3 +218,19 @@ AWS_STORAGE_BUCKET_NAME = LIARA_BUCKET_NAME
 AWS_S3_ENDPOINT_URL     = LIARA_ENDPOINT
 AWS_S3_REGION_NAME      = 'us-east-1'
 AWS_S3_FILE_OVERWRITE   = False
+
+
+# django debug toolbar for docker usage
+SHOW_DEBUGGER_TOOLBAR = config(
+    "SHOW_DEBUGGER_TOOLBAR", cast=bool, default=True)
+if SHOW_DEBUGGER_TOOLBAR:
+    INSTALLED_APPS += [
+        "debug_toolbar",
+    ]
+    MIDDLEWARE += [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+    ]
+    import socket  # only if you haven't already imported this
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [
+        ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]

@@ -18,7 +18,7 @@ class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     permission_required = "books.special_status"
     
     def get_queryset(self):
-        return Book.objects.all()
+        return Book.objects.prefetch_related('reviews__author',).all()
     
 
 class SearchResultsListView(ListView):

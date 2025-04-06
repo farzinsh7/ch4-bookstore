@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +30,10 @@ urlpatterns = [
     path("", include("pages.urls")),
     path("books/", include("books.urls")),
 ]
+
+if settings.SHOW_DEBUGGER_TOOLBAR:
+    urlpatterns += [path('__debug__/', include('debug_toolbar.urls')),]
+
 
 
 if settings.DEBUG:
